@@ -5,7 +5,10 @@ plot(log(blast_real[machine=="raspi"]) ~ log(nBlast[machine=="raspi"]),pch="+",x
 points(log(blast_real[machine=="MBP"]) ~ log(nBlast[machine=="MBP"]),pch="+",col="red")
 points(log(blast_real[machine=="AWSmicro"]) ~ log(nBlast[machine=="AWSmicro"]),pch="+",col="blue")
 points(log(blast_real[machine=="AWSlarge"]) ~ log(nBlast[machine=="AWSlarge"]),pch="x",col="green")
-#legend()
+#ooverall=glm(blast_real ~nThreads*nBlast,data=comps)
+summary(overall)
+plot(overall)
+legend()
 #quartz()
 
 #plot(log(blast_user[machine=="raspi"]) ~ log(nBlast[machine=="raspi"]),pch="+",xlab="log (num. blast queries)",ylab="log(time, user s)",main="Blast compute time")
