@@ -62,7 +62,6 @@
 #endif
 
 #if ! (defined(__ppc) || defined(__powerpc__) || defined(PPC))
- #include <xmmintrin.h>
 /*
   special bug fix, enforces denormalized numbers to be flushed to zero,
   without this program is a tiny bit faster though.
@@ -12860,9 +12859,15 @@ int main (int argc, char *argv[])
        David Defour's command  
        _mm_setcsr( _mm_getcsr() | (_MM_FLUSH_ZERO_ON | MM_DAZ_ON));  
     */
-    
+
+	/*
+	 * ARM / raspi specific compile (Joe Parker May 2015) 
+	 * commented out:
+	 *    
     _mm_setcsr( _mm_getcsr() | _MM_FLUSH_ZERO_ON);
-    
+    	 *
+	 * end comment JDP 05/2015
+	 */
 #endif 
     
     adef = (analdef *)rax_malloc(sizeof(analdef));
